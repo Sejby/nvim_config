@@ -43,6 +43,24 @@ keymap.set("n", "<C-S-h>", "<C-w><")
 keymap.set("n", "<C-S-l>", "<C-w>>")
 keymap.set("n", "<C-S-k>", "<C-w>+")
 keymap.set("n", "<C-S-j>", "<C-w>-")
+keymap.set("n", "<C-d>", "<C-d>zz")
+keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- Terminal
+keymap.set("n", "st", function()
+  vim.cmd("split")
+  local height = math.floor(vim.o.lines / 5)
+  vim.cmd("resize " .. height)
+  vim.cmd("terminal")
+  vim.cmd("startinsert")
+end, { desc = "Open terminal in bottom 1/5 split" })
+
+keymap.set("n", "<Leader>tt", function()
+  vim.cmd("ToggleTerm direction=horizontal size=" .. math.floor(vim.o.lines / 5))
+end, { desc = "Toggle terminal" })
+
+-- Snadné opuštění terminal módu
+keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Diagnostics
 keymap.set("n", "<C-j>", function()
