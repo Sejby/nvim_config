@@ -10,6 +10,10 @@ return {
         "tailwindcss-language-server",
         "typescript-language-server",
         "css-lsp",
+        "intelephense",
+        "clangd",
+        "jdtls",
+        "omnisharp",
       })
     end,
   },
@@ -58,6 +62,44 @@ return {
           },
         },
         html = {},
+        intelephense = {
+          settings = {
+            intelephense = {
+              files = {
+                maxSize = 1000000,
+              },
+            },
+          },
+        },
+        clangd = {
+          keys = {
+            { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
+          },
+          capabilities = {
+            offsetEncoding = { "utf-16" },
+          },
+          cmd = {
+            "clangd",
+            "--background-index",
+            "--clang-tidy",
+            "--header-insertion=iwyu",
+            "--completion-style=detailed",
+            "--function-arg-placeholders",
+            "--fallback-style=llvm",
+          },
+          init_options = {
+            usePlaceholders = true,
+            completeUnimported = true,
+            clangdFileStatus = true,
+          },
+        },
+        jdtls = {},
+        omnisharp = {
+          cmd = { "omnisharp" },
+          enable_roslyn_analyzers = true,
+          organize_imports_on_format = true,
+          enable_import_completion = true,
+        },
         lua_ls = {
           -- enabled = false,
           single_file_support = true,

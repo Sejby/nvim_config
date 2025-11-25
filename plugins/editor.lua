@@ -12,6 +12,22 @@ return {
     opts = {},
   },
   {
+    "nvim-mini/mini.surround",
+    version = false,
+    event = "BufReadPre",
+    opts = {
+      mappings = {
+        add = "sa",
+        delete = "sd",
+        find = "sf",
+        find_left = "sF",
+        highlight = "sh",
+        replace = "sr",
+        update_n_lines = "sn",
+      },
+    },
+  },
+  {
     "nvim-telescope/telescope.nvim",
     priority = 1000,
     dependencies = {
@@ -148,6 +164,13 @@ return {
       telescope.setup(opts)
       require("telescope").load_extension("fzf")
       require("telescope").load_extension("file_browser")
+    end,
+  },
+  {
+    "lervag/vimtex",
+    lazy = false,
+    init = function()
+      vim.g.vimtex_view_method = "zathura"
     end,
   },
 }

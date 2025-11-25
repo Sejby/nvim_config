@@ -43,8 +43,6 @@ keymap.set("n", "<C-S-h>", "<C-w><")
 keymap.set("n", "<C-S-l>", "<C-w>>")
 keymap.set("n", "<C-S-k>", "<C-w>+")
 keymap.set("n", "<C-S-j>", "<C-w>-")
-keymap.set("n", "<C-d>", "<C-d>zz")
-keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Terminal
 keymap.set("n", "st", function()

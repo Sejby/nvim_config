@@ -14,6 +14,12 @@ return {
         "sql",
         "vim",
         "lua",
+        "dart",
+        "php",
+        "c",
+        "cpp",
+        "java",
+        "c_sharp",
       },
       query_linter = {
         enable = true,
