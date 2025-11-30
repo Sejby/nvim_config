@@ -173,4 +173,112 @@ return {
       vim.g.vimtex_view_method = "zathura"
     end,
   },
+
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+      local autopairs = require("nvim-autopairs")
+      autopairs.setup({
+        check_ts = true,
+        ts_config = {
+          lua = { "string" },
+          javascript = { "template_string" },
+          java = false,
+        },
+        disable_filetype = { "TelescopePrompt", "vim" },
+        fast_wrap = {
+          map = "<M-e>",
+          chars = { "{", "[", "(", '"', "'" },
+          pattern = [=[[%'%"%>%]%)%}%,]]=],
+          end_key = "$",
+          keys = "qwertyuiopzxcvbnmasdfghjkl",
+          check_comma = true,
+          highlight = "Search",
+          highlight_grey = "Comment",
+        },
+      })
+    end,
+  },
+  {
+    "nvim-mini/mini.pairs",
+    enabled = false,
+  },
+
+  {
+    "smjonas/inc-rename.nvim",
+    cmd = "IncRename",
+    keys = {
+      {
+        "<leader>rn",
+        function()
+          return ":IncRename " .. vim.fn.expand("<cword>")
+        end,
+        desc = "Incremental rename",
+        mode = "n",
+        noremap = true,
+        expr = true,
+      },
+    },
+    config = true,
+  },
+
+  {
+    "ThePrimeagen/refactoring.nvim",
+    keys = {
+      {
+        "<leader>r",
+        function()
+          require("refactoring").select_refactor({
+            show_success_message = true,
+          })
+        end,
+        mode = "v",
+        noremap = true,
+        silent = true,
+        expr = false,
+      },
+    },
+    opts = {},
+  },
+
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    opts = {
+      size = function(term)
+        if term.direction == "horizontal" then
+          return math.floor(vim.o.lines / 5)
+        elseif term.direction == "vertical" then
+          return vim.o.columns * 0.4
+        end
+      end,
+      open_mapping = [[<c-\>]],
+      hide_numbers = true,
+      shade_terminals = true,
+      shading_factor = 2,
+      start_in_insert = true,
+      insert_mappings = true,
+      terminal_mappings = true,
+      persist_size = true,
+      persist_mode = true,
+      direction = "horizontal",
+      close_on_exit = true,
+      shell = vim.o.shell,
+      float_opts = {
+        border = "curved",
+        winblend = 0,
+        highlights = {
+          border = "Normal",
+          background = "Normal",
+        },
+      },
+    },
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup()
+    end,
+  },
 }

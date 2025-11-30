@@ -1,5 +1,38 @@
 return {
   {
+    "sainnhe/sonokai",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.sonokai_transparent_background = "1"
+      vim.g.sonokai_enable_italic = 1
+      vim.g.sonokai_style = "andromeda"
+      vim.cmd.colorscheme("sonokai")
+    end,
+  },
+
+  {
+    "folke/snacks.nvim",
+    opts = {
+      dashboard = {
+        preset = {
+          header = [[
+ ____  _     _____    _  ____ ___  _ ____  _____ _    
+/ ___\/ \ /|/  __/   / |/  __\\  \///  _ \/  __// \ |\
+|    \| |_|||  \     | || | // \  / | | \||  \  | | //
+\___ || | |||  /_ /\_| || |_\\ / /  | |_/||  /_ | \// 
+\____/\_/ \|\____\\____/\____//_/   \____/\____\\__/  
+                                                      
+]],
+        },
+      },
+      explorer = {
+        enabled = false,
+      },
+    },
+  },
+
+  {
     "folke/noice.nvim",
     opts = function(_, opts)
       table.insert(opts.routes, {
