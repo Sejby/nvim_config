@@ -3,6 +3,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
+        "prisma",
         "javascript",
         "typescript",
         "css",
@@ -20,6 +21,9 @@ return {
         "cpp",
         "java",
         "c_sharp",
+      },
+      highlight = {
+        enable = true,
       },
       query_linter = {
         enable = true,
