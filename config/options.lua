@@ -32,3 +32,5 @@ vim.opt.splitkeep = "cursor"
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 -- Add asterisks in block comments
 vim.opt.formatoptions:append({ "r" })
+
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

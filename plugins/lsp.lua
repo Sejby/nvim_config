@@ -1,4 +1,9 @@
 return {
+  {
+    "Hoffs/omnisharp-extended-lsp.nvim",
+    lazy = true,
+  },
+
   -- tools
   {
     "mason-org/mason.nvim",
@@ -95,10 +100,49 @@ return {
         },
         jdtls = {},
         omnisharp = {
-          cmd = { "omnisharp" },
           enable_roslyn_analyzers = true,
           organize_imports_on_format = true,
           enable_import_completion = true,
+          settings = {
+            FormattingOptions = {
+              EnableEditorConfigSupport = true,
+              OrganizeImports = true,
+            },
+            RoslynExtensionsOptions = {
+              EnableAnalyzersSupport = true,
+              EnableImportCompletion = true,
+            },
+          },
+          keys = {
+            {
+              "gd",
+              function()
+                require("omnisharp_extended").telescope_lsp_definition()
+              end,
+              desc = "Go to Definition (C#)",
+            },
+            {
+              "gr",
+              function()
+                require("omnisharp_extended").telescope_lsp_references()
+              end,
+              desc = "Go to References (C#)",
+            },
+            {
+              "gi",
+              function()
+                require("omnisharp_extended").telescope_lsp_implementation()
+              end,
+              desc = "Go to Implementation (C#)",
+            },
+            {
+              "<leader>D",
+              function()
+                require("omnisharp_extended").telescope_lsp_type_definition()
+              end,
+              desc = "Go to Type Definition (C#)",
+            },
+          },
         },
         lua_ls = {
           -- enabled = false,
