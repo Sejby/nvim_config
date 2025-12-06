@@ -10,6 +10,9 @@ keymap.set("n", "x", '"_x')
 keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
+keymap.set("n", "<C-d>", "<C-d>zz", { silent = true })
+keymap.set("n", "<C-u>", "<C-u>zz", { silent = true })
+
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
