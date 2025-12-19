@@ -19,6 +19,8 @@ return {
         "clangd",
         "jdtls",
         "omnisharp",
+        "rust-analyzer",
+        "gopls",
       })
     end,
   },
@@ -206,6 +208,30 @@ return {
                   continuation_indent_size = "2",
                 },
               },
+            },
+          },
+        },
+        rust_analyzer = {
+          settings = {
+            ["rust-analyzer"] = {
+              checkOnSave = {
+                command = "clippy",
+              },
+              inlayHints = {
+                enable = true,
+              },
+            },
+          },
+        },
+        gopls = {
+          settings = {
+            gopls = {
+              analyses = {
+                unusedparams = true,
+                unusedwrite = true,
+              },
+              staticcheck = true,
+              gofumpt = true,
             },
           },
         },

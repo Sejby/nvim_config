@@ -7,6 +7,10 @@ return {
     end,
   },
   {
+    "R-nvim/R.nvim",
+    lazy = false,
+  },
+  {
     "nvim-mini/mini.hipatterns",
     event = "BufReadPre",
     opts = {},
@@ -222,7 +226,6 @@ return {
     },
     config = true,
   },
-
   {
     "ThePrimeagen/refactoring.nvim",
     keys = {
@@ -258,13 +261,14 @@ return {
       shade_terminals = true,
       shading_factor = 2,
       start_in_insert = true,
-      insert_mappings = true,
-      terminal_mappings = true,
+      insert_mappings = false,
+      terminal_mappings = false,
       persist_size = true,
       persist_mode = true,
       direction = "horizontal",
       close_on_exit = true,
       shell = vim.o.shell,
+      autochdir = false,
       float_opts = {
         border = "curved",
         winblend = 0,
